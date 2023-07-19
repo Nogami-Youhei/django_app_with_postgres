@@ -1,0 +1,61 @@
+{% extends "polls/base.html" %}
+
+{% block load_file %}
+{% load static %}
+<script src="/static/polls/detail.js"></script>
+{% endblock %}
+
+
+{% block title %}
+投票アプリ - detail
+{% endblock %}
+
+
+{% block header-title %}
+投票アプリケーション
+{% endblock %}
+
+{% block content %}
+<div class="main-area-inner">
+    <h2 class="subtitle">『{{ question.question_text }}』について投票</h2>
+
+    <!-- 選択肢を追加する 始め-->
+    <div class="detail-contains-area">
+        <input type="text" id="input_choice_form">
+        <input type="submit" value="追加する" id="submit-new-choice">
+        <div class="delete-this-question">
+            <form action="{% url 'polls:delete_question' question.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="削除する" class="btn btn-primary post-choice-btn">
+            </form>
+        </div>
+    </div>
+    <!-- 選択肢を追加する 終了-->
+
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+        {% csrf_token %}
+        <fieldset id="choice_fieldset" class="choices-area">
+            {% if error_message %}
+                <p><strong>{{ error_message }}</strong></p>
+            {% endif %}
+            {% for choice in question.choice_set.all %}
+            <div class="choice-area">
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" style="transform: scale(2.0);">
+                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+            </div>
+            {% endfor %}
+        </fieldset>
+        <input type="submit" value="投票する" class="btn btn-primary post-choice-btn">
+    </form>
+
+
+</div>
+<script>
+    const choiceBtn = document.getElementById('submit-new-choice');
+
+    window.onload = () => {
+        choiceBtn.addEventListener('click', submitNewChoice);
+    }
+
+</script>
+{% endblock %}

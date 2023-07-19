@@ -1,0 +1,214 @@
+
+h1.header-title {
+    height: 12vh;
+    width: 100vw;
+    padding: 3vh 5vw;
+    background-color: rgb(250, 250, 155);
+    margin-bottom: 0;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 3px 2px rgb(160, 160, 160);
+}
+
+div.main-area{
+    height: 80vh;
+    width: 100vw;
+    padding: 2.5vh 1vw;
+    background: white url("road_with_ginkgo.jpg") no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+div.footer {
+    height: 8vh;
+    width: 100vw;
+    background-color: rgb(250, 250, 155);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+div.footer p.footer-corpname {
+    font-size: 24px;
+    text-align: center;
+}
+
+div.main-area-inner {
+    width: 95%;
+    height: 95%;
+    margin: 1% 2.5%;
+    background-color: rgba(255, 255, 200, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+div.main-area-inner h2{
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+div.main-area-links {
+    font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+/* index */
+div.main-area-inner div.question-list-area {
+    width: 95%;
+    margin-top: 2%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    border: solid orangered 0.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.no-questions {
+    width: 95%;
+    display: flex;
+    margin: 10px 2.5%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.no-questions p.no-questions-text {
+    width: 95%;
+    height: 200px;
+    color: orange;
+    font-size: 64px;
+    text-align: center;
+    text-shadow: 2px 2px red;
+    padding: 30px 0;
+}
+
+div.question-title {
+    width: 100%;
+    font-size: 36px;
+    text-shadow: 1px 1px gray;
+    text-align: center;
+    padding: 15px 0;
+}
+
+div.question-list{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+div.question-area{
+    height: 120px;
+    width: 40%;
+    margin: 20px 5%;
+    background: linear-gradient(150deg, rgb(255, 125, 70) 0%, rgba(255,255,110,1) 35%, rgb(200, 250, 100) 100%);
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.question-area a p.question-text{
+    font-size: 36px;
+    color: rgb(255, 115, 50);
+    font-weight: 800;
+    text-shadow: 2px 2px rgb(255, 255, 50);
+    padding: 0 4%;
+    margin: 0;
+}
+
+/* create question page */
+div.question-forms-area {
+    width: 95%;
+    margin-top: 2%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    padding-bottom: 30px;
+    border: solid orangered 0.5px;
+}
+
+div.question-forms-area fieldset{
+    width: 100%;
+}
+
+div.question-forms-area h3{
+    width: 100%;
+    text-align: left;
+    padding-left: 5%;
+    margin-top: 20px;
+}
+
+div.question-form-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-text-input-form {
+    width: 90%;
+    height: 150px;
+    padding: 2px;
+}
+
+div.post-question-btn-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+input.post-question-btn{
+    width: 200px;
+    height: auto;
+    font-size: 30px;
+}
+
+
+/* detail画面 */
+div.detail-contains-area {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    border: dotted 1px orangered;
+    margin-top: 10px;
+}
+
+div.post-new-choice-area {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+input.post-choice-btn {
+    width: 200px;
+    height: auto;
+    font-size: 30px;
+    margin: 20px 0;
+}
+
+/* div.post-new-choice-area input.post-new-choice-form {} */
+
+div.choice-area {
+    font-size: 36px;
+}

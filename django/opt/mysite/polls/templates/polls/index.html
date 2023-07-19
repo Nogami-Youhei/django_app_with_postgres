@@ -1,0 +1,41 @@
+{% extends "polls/base.html" %}
+
+{% block title %}
+投票アプリ - index
+{% endblock %}
+
+
+{% block header-title %}
+投票アプリケーション
+{% endblock %}
+
+{% block content %}
+<div class="main-area-inner">
+    <h2 class="subtitle">＜トップページ＞</h2>
+
+    <div class="question-list-area">
+    {% if latest_question_list %}
+        <div class="question-title">
+            ＜質問一覧＞
+        </div>
+        <div class="question-list">
+            {% for question in latest_question_list %}
+                <div class="question-area">
+                    <a href="{% url 'polls:detail' question.id %}">
+                        <p class="question-text">{{ question.question_text }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="no-question">
+                    <p class="no-questions-text">No questions are available.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="main-area-links">
+        <!-- 質問作成ページへのリンク -->
+        <a href="{% url 'polls:create_question' %}">新規質問作成ページ</a>
+    </div>
+</div>
+{% endblock %}

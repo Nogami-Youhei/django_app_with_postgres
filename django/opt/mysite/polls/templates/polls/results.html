@@ -1,0 +1,26 @@
+{% extends "polls/base.html" %}
+
+{% block title %}
+投票アプリ - result
+{% endblock %}
+
+
+{% block header-title %}
+投票アプリケーション
+{% endblock %}
+
+{% block content %}
+<div class="main-area-inner">
+    <h2 class="subtitle">『{{ question.question_text }}』投票結果</h2>
+
+    <ul class="choice-result-area">
+        {% for choice in question.choice_set.all %}
+        <li>{{ choice.choice_text }} -- {{ choice.votes }} vote</li>
+        {% endfor %}
+    </ul>
+
+    <div class="main-area-links">
+        <a href="{% url 'polls:detail' question.id %}">再投票する</a>
+    </div>
+</div>
+{% endblock %}

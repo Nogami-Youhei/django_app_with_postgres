@@ -1,0 +1,39 @@
+version: '3'
+services:
+  django:
+    #restart: always
+    build: ./django/
+    container_name: 'django'
+    tty: true #正常終了させないための仮プロセス
+    ports:
+      - "8030:8000" #Django用
+    volumes:
+      - ./django/opt:/workdir/opt
+    networks:
+        - docker_network
+
+  postgresql:
+    container_name: 'postgresql'
+    build: ./postgresql/
+    ports:
+      - 54321:5432
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+      - ./postgresql/init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: ginkgo
+      POSTGRES_PASSWORD: ginkgo
+    #restart: always
+    networks:
+      docker_network:
+        ipv4_address: 192.168.212.30
+
+
+networks: 
+  docker_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+       - subnet: 192.168.212.0/24
+         gateway: 192.168.212.1

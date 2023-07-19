@@ -1,0 +1,44 @@
+{% extends "polls/base.html" %}
+
+{% block title %}
+投票アプリ - create question
+{% endblock %}
+
+
+{% block header-title %}
+投票アプリケーション
+{% endblock %}
+
+{% block content %}
+<div class="main-area-inner">
+    <h2 class="subtitle">＜質問作成ページ＞</h2>
+    <!-- 質問作成フォーム 始め-->
+    <div class="question-forms-area">
+        {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        <form action="{% url 'polls:post_question' %}" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <h3>・質問を記載して下さい。</h3>
+                <div class="question-form-area">
+                    <table>
+                    {{ create_question_form }}
+                    </table>
+                </div>
+            </fieldset>
+            <div class="post-question-btn-area">
+                <input type="submit" value="質問を登録" class="btn btn-primary post-question-btn">
+            </div>
+        </form>
+    </div>
+    <!-- 質問作成フォーム　終わり-->
+
+    <!-- リンクの作成 始め-->
+    <div class="main-area-links">
+        <a href="{% url 'polls:index' %}">トップページに戻る</a>
+    </div>
+    <!-- リンクの作成 終わり-->
+
+</div>
+{% endblock %}
