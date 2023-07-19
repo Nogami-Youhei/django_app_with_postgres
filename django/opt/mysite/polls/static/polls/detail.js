@@ -9,7 +9,8 @@ async function submitNewChoice() {
     };
 
     // send api server
-    const endpoint = `${baseUrl}/register_choice/`
+    // const endpoint = `${baseUrl}/register_choice/`
+    const endpoint = 'http://192.168.32.174:8030/api/register_choice/'
 
     choiceApiRes = await fetch(
         endpoint, {

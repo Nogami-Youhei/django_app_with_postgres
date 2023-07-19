@@ -9,5 +9,5 @@ urlpatterns = [
     path("<int:question_id>/vote/", views.vote, name="vote"),
     path("create_question/", views.create_question, name="create_question"),
     path("post_question/", views.post_question, name="post_question"),
-    path("<int:question_id>/delete_question/", views.delete_question, name="delete_question")
+    path("<int:question_id>/delete_question/", views.delete_question, name="delete_question"),
 ]
