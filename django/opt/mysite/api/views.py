@@ -11,9 +11,9 @@ from polls.models import Choice, Question
 def register_choice(request):
 
     try:
-        req = json.loads(request.body)
-        question_id = int(req['questionId'])
-        choice_text = req['choiceText']
+        req = request.POST
+        question_id = int(req.get('questionId'))
+        choice_text = req.get('choiceText')
 
         only_space_pattern = "^[\s|　]+$"
 
@@ -25,7 +25,6 @@ def register_choice(request):
         new_choice = parent_question.choice_set.create(
             choice_text = choice_text,
             votes = 0)
-        new_choice.save()
 
         res = {
             "status": "success",

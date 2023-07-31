@@ -26,8 +26,8 @@ SECRET_KEY = os.environ['GINKGO_POLLS_APP_SECRETKEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.32.174', 'localhost']
-
+# ALLOWED_HOSTS = ['192.168.32.174', 'localhost']
+ALLOWED_HOSTS = []
 
 # Application definition
 

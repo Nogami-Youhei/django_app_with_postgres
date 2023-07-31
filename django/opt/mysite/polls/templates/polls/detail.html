@@ -21,8 +21,11 @@
 
     <!-- 選択肢を追加する 始め-->
     <div class="detail-contains-area">
-        <input type="text" id="input_choice_form">
-        <input type="submit" value="追加する" id="submit-new-choice">
+        <form id="add_item">
+        <input type="text" id="input_choice_form" name="choiceText">
+        <input type="hidden" value="{{ question.id }}" name="questionId">
+        <input type="button" value="追加する" id="submit-new-choice">
+        </form>
         <div class="delete-this-question">
             <form action="{% url 'polls:delete_question' question.id %}" method="post">
                 {% csrf_token %}
