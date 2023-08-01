@@ -2,13 +2,6 @@ async function submitNewChoice() {
 	const form = document.getElementById('add_item')
     const textBox = document.getElementById("input_choice_form");
     const choiceText = textBox.value
-
-	const formData = new FormData(form);
-	const serialized = [];
-
-    for (const [name, value] of formData) {
-      serialized.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`);
-    }
 	
     // send api server
     // const endpoint = `${baseUrl}/register_choice/`
@@ -16,8 +9,7 @@ async function submitNewChoice() {
 
     let choiceApiRes = await fetch(endPoint, {
         method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: serialized.join('&')
+        body: new FormData(form)
     });
 
     const choiceRes = await choiceApiRes.json();
